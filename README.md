@@ -1,363 +1,414 @@
 # Dokumentasi Program PBO
 
-## Sistem Analisis dan Manajemen Data Pengunjung Kolam Renang
+| Keterangan | Data |
+|---|---|
+| Nama | Muhammad Rizky Alfa Reza Basyah |
+| NIM | 2509116086 |
+| Kelas | C 2025 |
+| Mata Kuliah | Pemrograman Berorientasi Objek |
 
-### Deskripsi Singkat Program
+---
 
-Program Sistem Analisis dan Manajemen Data Pengunjung Kolam Renang merupakan aplikasi berbasis Java yang dikembangkan untuk menerapkan konsep Pemrograman Berorientasi Objek (PBO). Program ini digunakan untuk mengelola data pengunjung sekaligus menganalisis informasi kunjungan sebagai bahan pertimbangan bagi pengelola kolam renang dalam mengambil keputusan.
+## Deskripsi Singkat Program
 
-Program tidak hanya berfokus pada proses pencatatan data, tetapi juga menyediakan fitur analisis untuk mengetahui karakteristik pengunjung berdasarkan umur, jenis kelamin, kategori pengunjung, tanggal kunjungan, serta informasi biaya kunjungan sesuai dengan jenis pengunjung.
+Program ini merupakan aplikasi berbasis Java yang dibuat untuk menerapkan konsep Pemrograman Berorientasi Objek (PBO). Program yang dibuat adalah **Sistem Analisis dan Manajemen Data Pengunjung Kolam Renang** yang digunakan untuk mengelola data pengunjung yang datang ke kolam renang.
 
-Fitur utama yang tersedia meliputi:
+Program ini berfokus pada pengelolaan data pengunjung, mulai dari proses registrasi, menampilkan data, mengubah data, menghapus data, hingga mencari pengunjung berdasarkan nama.
 
-* Registrasi pengunjung Member dan Non-Member.
+Program memiliki beberapa fitur utama, yaitu:
+
+* Menambahkan data pengunjung.
 * Menampilkan seluruh data pengunjung.
 * Mengubah data pengunjung.
 * Menghapus data pengunjung.
-* Mencari pengunjung berdasarkan nama.
+* Mencari data pengunjung berdasarkan nama.
 * Menghasilkan ID pengunjung secara otomatis.
-* Menampilkan statistik pengunjung.
-* Menganalisis karakteristik dan pola kunjungan.
-* Menghitung informasi biaya kunjungan sesuai kategori pengunjung.
-* Memberikan rekomendasi berdasarkan hasil analisis data.
+* Membedakan pengunjung menjadi Member dan Non-Member.
+* Menampilkan statistik jumlah pengunjung.
 * Melakukan validasi terhadap input pengguna.
-* Menyediakan dummy data untuk pengujian awal program.
+* Menyediakan dummy data awal agar data langsung tersedia saat program dijalankan.
 
-Program menerapkan konsep PBO berupa class, object, attribute, constructor, method, abstract class, abstract method, inheritance, encapsulation, polymorphism, method overriding, method overloading, interface, serta penggunaan `ArrayList`.
+Program juga menerapkan beberapa konsep PBO, yaitu **class, object, attribute/property, constructor, method, ArrayList, access modifier, encapsulation, inheritance, polymorphism, percabangan, dan perulangan**.
 
-Program juga menerapkan pola arsitektur Model-View-Controller (MVC) untuk memisahkan pengelolaan data, proses bisnis, dan interaksi dengan pengguna.
+**Tampilan Program Sistem Analisis dan Manajemen Data Pengunjung Kolam Renang**
 
-### Tujuan Pembuatan Program
+<img width="278" height="204" alt="image" src="https://github.com/user-attachments/assets/6bc7aed8-24bb-4cb2-bdd2-3c6685b370a7" />
 
-Program ini dikembangkan dengan tujuan sebagai berikut:
+---
 
-1. Mempermudah pengelola kolam renang dalam mencatat dan mengelola data pengunjung.
-2. Mengurangi kesalahan pencatatan melalui validasi input dan pembuatan ID otomatis.
-3. Memudahkan pencarian, perubahan, dan penghapusan data pengunjung.
-4. Menyediakan informasi statistik mengenai karakteristik pengunjung.
-5. Membantu pengelola memahami pola kunjungan berdasarkan data yang tersedia.
-6. Memberikan rekomendasi yang dapat digunakan sebagai bahan pertimbangan dalam pengelolaan layanan kolam renang.
-7. Menerapkan konsep Pemrograman Berorientasi Objek secara terstruktur menggunakan bahasa Java.
-
-### Alur Kerja Program
+## Penjelasan Alur Program
 
 Alur kerja program secara umum adalah sebagai berikut:
 
 1. Program dijalankan melalui class `Main` sebagai entry point.
-2. Program membuat objek `ManajemenPengunjung` untuk mengelola data dan menjalankan proses bisnis.
-3. Program membuat objek `PengunjungView` untuk menampilkan menu dan menerima input pengguna.
-4. Program menyiapkan `ArrayList` sebagai tempat penyimpanan data pengunjung.
-5. Program memasukkan dummy data awal agar fitur dapat langsung diuji.
-6. Program menampilkan menu utama.
-7. Pengguna memilih fitur yang ingin dijalankan.
-8. Program memproses pilihan melalui percabangan dan memanggil method yang sesuai.
-9. Jika pengguna memilih fitur pengelolaan data, program menjalankan operasi registrasi, tampilkan data, ubah, hapus, atau pencarian.
-10. Jika pengguna memilih analisis, program mengolah data yang tersimpan untuk menghasilkan statistik dan rekomendasi.
-11. Setelah proses selesai, program kembali menampilkan menu utama.
-12. Program berakhir ketika pengguna memilih menu keluar.
+2. Program membuat objek `ManajemenPengunjung` untuk mengelola data pengunjung.
+3. Program membuat objek `PengunjungView` untuk menampilkan menu dan menerima interaksi dari pengguna.
+4. Program secara otomatis memasukkan dummy data awal ke dalam `ArrayList`.
+5. Program menampilkan menu utama kepada pengguna.
+6. Pengguna memilih menu berdasarkan pilihan yang tersedia.
+7. Program memproses pilihan pengguna menggunakan percabangan `switch`.
+8. Jika pengguna memilih:
 
-### Struktur Package
+   * **Registrasi Pengunjung**, pengguna memasukkan nama, umur, jenis kelamin, tanggal kunjungan, serta memilih tipe Member atau Non-Member. ID pengunjung dibuat secara otomatis oleh sistem.
+   * **Tampilkan Semua Pengunjung**, program menampilkan seluruh data yang tersimpan dalam `ArrayList` menggunakan perulangan.
+   * **Ubah Data Pengunjung**, pengguna memilih ID pengunjung yang akan diubah, kemudian memasukkan data baru.
+   * **Hapus Data Pengunjung**, pengguna memilih ID pengunjung yang akan dihapus dan melakukan konfirmasi sebelum data dihapus.
+   * **Cari Pengunjung Berdasarkan Nama**, pengguna memasukkan nama atau sebagian nama, kemudian program menampilkan data yang sesuai.
+   * **Statistik Pengunjung**, program menampilkan jumlah total pengunjung, jumlah Member, Non-Member, serta jumlah berdasarkan jenis kelamin.
+   * **Keluar**, program dihentikan.
+9. Setelah suatu proses selesai, program kembali menampilkan menu utama.
+10. Perulangan terus berjalan sampai pengguna memilih menu **Keluar**.
 
-Program menggunakan struktur package untuk memisahkan tanggung jawab setiap class dan menerapkan arsitektur MVC.
+## Struktur Package
 
-Struktur package program adalah sebagai berikut:
+Program menggunakan struktur package agar kode lebih terorganisir dan menerapkan konsep **MVC (Model-View-Controller)**.
 
-<img width="294" height="287" alt="image" src="https://github.com/user-attachments/assets/df2a4feb-fff8-43c5-a57b-19a6b2a7f55d" />
+**Struktur Package pada NetBeans**
 
+<img width="362" height="356" alt="image" src="https://github.com/user-attachments/assets/c5f02ee1-4438-4bab-86d1-f23976965bc6" />
 
-#### Package Model
+---
 
-Package `model` berisi class yang merepresentasikan data dan perilaku pengunjung.
+### Penjelasan Package
 
-* `LayananPengunjung.java`: interface yang mendefinisikan perilaku atau layanan yang harus diterapkan oleh class terkait.
-* `Member.java`: subclass yang merepresentasikan pengunjung kategori Member.
-* `NonMember.java`: subclass yang merepresentasikan pengunjung kategori Non-Member.
-* `Pengunjung.java`: abstract class yang menjadi dasar bagi jenis pengunjung.
+**1. Package Model**
 
-#### Package Controller
+Package `model` berisi class yang merepresentasikan data dalam program.
 
-Package `controller` berisi class `ManajemenPengunjung.java`.
+* `Pengunjung.java` sebagai superclass.
+* `Member.java` sebagai subclass dari `Pengunjung`.
+* `NonMember.java` sebagai subclass dari `Pengunjung`.
 
-Class ini bertanggung jawab mengelola data pengunjung, menjalankan operasi CRUD, melakukan pencarian, menghitung statistik, menganalisis data, dan menghasilkan rekomendasi berdasarkan data yang tersedia.
+**Class pada Package Model**
 
-#### Package View
+<img width="274" height="112" alt="image" src="https://github.com/user-attachments/assets/e96a2118-e535-45dc-8259-d1e6a5e08e3a" />
 
-Package `view` berisi class `PengunjungView.java`.
+---
 
-Class ini bertugas menampilkan menu, menerima input pengguna, menampilkan hasil pengolahan data, serta menghubungkan interaksi pengguna dengan controller.
+**2. Package Controller**
 
-#### Package Utils
+Package `controller` berisi `ManajemenPengunjung.java` yang bertugas mengelola proses data pengunjung, seperti tambah, tampil, cari, ubah, dan hapus data.
+
+**Class ManajemenPengunjung**
+
+<img width="339" height="43" alt="image" src="https://github.com/user-attachments/assets/56743c75-b143-4a4d-a2f6-64a9d5e0f111" />
+
+---
+
+**3. Package View**
+
+Package `view` berisi `PengunjungView.java` yang bertugas menampilkan menu dan berinteraksi dengan pengguna.
+
+<img width="269" height="49" alt="image" src="https://github.com/user-attachments/assets/80d24e74-a0ed-4a4a-843b-bab312fb7b0b" />
+
+---
+
+**4. Package Utils**
 
 Package `utils` berisi class pendukung program.
 
-* `ValidasiInput.java`: memvalidasi input agar sesuai dengan ketentuan program.
-* `IdGenerator.java`: menghasilkan ID pengunjung secara otomatis.
+* `ValidasiInput.java` digunakan untuk melakukan validasi input.
+* `IdGenerator.java` digunakan untuk menghasilkan ID pengunjung secara otomatis.
 
-#### Main.java
+<img width="265" height="68" alt="image" src="https://github.com/user-attachments/assets/26476c78-8486-4c7e-a8b6-738f93f3d538" />
 
-Class `Main.java` merupakan titik awal eksekusi program. Class ini melakukan inisialisasi objek yang diperlukan sebelum menampilkan menu utama.
+---
 
-### Penerapan Arsitektur MVC
+**5. Main.java**
 
-Program menerapkan pola Model-View-Controller (MVC) untuk memisahkan fungsi setiap bagian program.
+`Main.java` digunakan sebagai entry point untuk menjalankan program.
 
-**Model**
+<img width="282" height="43" alt="image" src="https://github.com/user-attachments/assets/fd606f1b-b2ee-472e-8d22-16808b2d1bcf" />
 
-Bagian model merepresentasikan data dan perilaku pengunjung melalui class `Pengunjung`, `Member`, dan `NonMember`, serta kontrak perilaku melalui interface `LayananPengunjung`.
+---
 
-**View**
+## Penerapan Encapsulation
 
-Bagian view menangani interaksi dengan pengguna melalui class `PengunjungView`, seperti menampilkan menu dan hasil pemrosesan data.
+Program menerapkan **encapsulation** dengan membatasi akses langsung terhadap atribut menggunakan access modifier `private`.
 
-**Controller**
+Contohnya pada class `Pengunjung`:
 
-Bagian controller menangani proses bisnis melalui class `ManajemenPengunjung`, termasuk pengelolaan data, pencarian, analisis statistik, dan penyusunan rekomendasi.
+<img width="417" height="141" alt="image" src="https://github.com/user-attachments/assets/762e8e03-2d72-40c9-81ef-e49c68939ea3" />
 
-Pemisahan tersebut membuat kode lebih terorganisir, mudah dipahami, dan lebih mudah dikembangkan.
+Atribut tersebut tidak dapat diakses secara langsung dari class lain. Program menyediakan getter dan setter untuk mengakses atau mengubah data.
 
-### Penerapan Abstract Class dan Abstract Method
+Dengan menerapkan encapsulation, data yang terdapat pada objek pengunjung menjadi lebih terkontrol karena class lain tidak dapat mengubah atribut secara langsung.
 
-Program menggunakan class `Pengunjung` sebagai abstract class karena class tersebut menjadi dasar bagi beberapa kategori pengunjung dan tidak ditujukan untuk digunakan sebagai objek umum secara langsung.
+---
 
-Abstract class ini menyimpan atribut umum pengunjung, seperti:
+## Penerapan Inheritance
 
-* ID pengunjung.
-* Nama.
-* Umur.
-* Jenis kelamin.
-* Tanggal kunjungan.
-* Informasi kategori atau tiket sesuai rancangan class.
+Program menerapkan **inheritance** dengan menggunakan class `Pengunjung` sebagai superclass dan class `Member` serta `NonMember` sebagai subclass.
 
-Abstract method `tampilkanData()` digunakan untuk menentukan perilaku penampilan data yang wajib diimplementasikan oleh subclass.
+Struktur inheritance:
 
-Penerapan abstract class membantu menghindari pengulangan atribut dan mendefinisikan struktur dasar yang sama bagi seluruh jenis pengunjung.
-
-### Penerapan Inheritance
-
-Program menerapkan inheritance melalui class `Member` dan `NonMember` yang mewarisi class `Pengunjung`.
-
-
-Class `Member` dan `NonMember` mewarisi atribut serta method umum dari `Pengunjung`. Setiap subclass kemudian dapat memiliki perilaku khusus sesuai kategorinya.
-
-Penerapan inheritance mengurangi pengulangan kode dan memungkinkan pengembangan kategori pengunjung tanpa harus menulis ulang seluruh atribut dasar.
-
-### Penerapan Encapsulation
-
-Program menerapkan encapsulation dengan membatasi akses langsung terhadap atribut menggunakan access modifier `private`.
-
-Contoh penerapannya pada class `Pengunjung`:
-
-```java
-private int idPengunjung;
-private String nama;
-private int umur;
-private String jenisKelamin;
+```text
+                 Pengunjung
+                     │
+            ┌────────┴────────┐
+            │                 │
+         Member           NonMember
 ```
 
-Atribut tersebut dikelola melalui method yang disediakan oleh class, seperti getter dan setter apabila diperlukan.
+Class `Pengunjung` memiliki atribut umum seperti:
 
-Penerapan encapsulation membuat akses dan perubahan data lebih terkontrol. Validasi tambahan pada setter juga dapat digunakan untuk mencegah nilai yang tidak sesuai dengan ketentuan program.
+* ID Pengunjung
+* Nama
+* Umur
+* Jenis Kelamin
+* Tanggal Kunjungan
 
-### Penerapan Polymorphism
+Class `Member` mewarisi atribut dan method dari class `Pengunjung`, kemudian memiliki atribut tambahan berupa `nomorMember`.
 
-Polymorphism diterapkan melalui method overriding dan method overloading.
+Class `NonMember` juga mewarisi atribut dan method dari class `Pengunjung`, kemudian memiliki atribut tambahan berupa `jenisTiket`.
 
-#### Method Overriding
+Contoh penerapan inheritance pada `Member`:
 
-Method `tampilkanData()` didefinisikan sebagai abstract method pada class `Pengunjung`, kemudian diimplementasikan oleh class `Member` dan `NonMember`.
+<img width="457" height="44" alt="image" src="https://github.com/user-attachments/assets/c970ec3a-979d-4d09-bd90-84368e34e445" />
 
-Setiap subclass dapat menampilkan informasi tambahan sesuai kategorinya.
+Sedangkan pada `NonMember`:
 
-Sebagai contoh, data Member dapat menyertakan informasi khusus keanggotaan, sedangkan Non-Member dapat menampilkan informasi terkait kategori tiketnya sesuai implementasi program.
+<img width="451" height="44" alt="image" src="https://github.com/user-attachments/assets/6d750490-ae9a-4a64-a2c6-f22fd6de409b" />
 
-Ketika controller memanggil `tampilkanData()` melalui referensi bertipe `Pengunjung`, Java menjalankan implementasi yang sesuai dengan objek sebenarnya.
+Penggunaan inheritance membuat beberapa data dan method yang sama tidak perlu ditulis ulang pada setiap class.
 
-#### Method Overloading
+---
 
-Method overloading diterapkan pada pencarian pengunjung melalui method `cariPengunjungByNama()` yang memiliki lebih dari satu bentuk parameter.
+## Penerapan Polymorphism
 
-Contoh bentuk method:
+Program menerapkan **polymorphism** melalui method overriding pada method `tampilkanData()`.
 
-```java
-cariPengunjungByNama(String nama)
-cariPengunjungByNama(String nama, String kategori)
-```
+Pada superclass `Pengunjung` terdapat method:
 
-Method pertama digunakan untuk mencari pengunjung berdasarkan nama. Method kedua menyediakan pencarian berdasarkan nama sekaligus kategori apabila parameter tersebut didukung oleh implementasi program.
+<img width="400" height="32" alt="image" src="https://github.com/user-attachments/assets/17cf7dcd-2c2b-4f1f-beb6-2a13a1a85ace" />
 
-Perbedaan parameter memungkinkan satu nama method digunakan untuk kebutuhan pencarian yang berbeda.
+Method tersebut kemudian dioverride pada class `Member`:
 
-### Penerapan Interface
+<img width="374" height="72" alt="image" src="https://github.com/user-attachments/assets/e3899c86-57b4-40e4-b597-426a0a1ab6dc" />
 
-Program menggunakan interface `LayananPengunjung` sebagai kontrak perilaku bagi class yang menerapkannya.
+dan pada class `NonMember`:
 
-Interface digunakan untuk mendefinisikan method layanan yang harus disediakan oleh class implementasi sesuai rancangan program.
+<img width="390" height="66" alt="image" src="https://github.com/user-attachments/assets/990b59f1-0f84-4753-928b-c0d74b1afc61" />
 
-Penerapan interface membantu memisahkan definisi perilaku dari implementasinya. Struktur tersebut juga membuat program lebih fleksibel ketika perilaku layanan perlu dikembangkan.
+Java akan menjalankan `tampilkanData()` sesuai dengan objek sebenarnya. Jika objek merupakan `Member`, maka method pada `Member` dijalankan. Jika objek merupakan `NonMember`, maka method pada `NonMember` dijalankan.
 
-### Penerapan Access Modifier
+Hal tersebut merupakan penerapan **polymorphism melalui method overriding**.
 
-Program menggunakan access modifier untuk mengatur hak akses terhadap atribut, constructor, dan method.
+---
 
-* `private`: membatasi akses langsung terhadap atribut internal class.
-* `public`: memungkinkan class atau method diakses dari bagian program lain sesuai kebutuhan.
-* `protected` atau akses default: digunakan apabila diperlukan sesuai hubungan pewarisan dan struktur package.
+## Penerapan Access Modifier
 
-Penggunaan access modifier membantu menjaga struktur program dan mendukung penerapan encapsulation.
+Program menerapkan access modifier untuk mengatur tingkat akses terhadap atribut dan method.
 
-### Penerapan Validasi Input
+Pada class `Pengunjung`, atribut menggunakan `private`:
 
-Program menyediakan class `ValidasiInput` untuk memeriksa data yang dimasukkan pengguna.
+<img width="482" height="137" alt="image" src="https://github.com/user-attachments/assets/519eff3e-b0b7-4072-a4a6-7b8dbd981832" />
 
-Validasi dilakukan agar data yang disimpan sesuai dengan aturan program.
+Sedangkan constructor, getter, setter, dan beberapa method menggunakan `public`.
 
-Validasi yang diterapkan mencakup:
+<img width="378" height="431" alt="image" src="https://github.com/user-attachments/assets/5b97ac01-6349-4d4a-bd36-b129a2e3c820" />
+
+Penggunaan `private` membantu membatasi akses langsung terhadap atribut sehingga data dapat dikelola melalui method yang telah disediakan.
+
+---
+
+## Penerapan Validasi Input
+
+Program menerapkan validasi input untuk memastikan data yang dimasukkan pengguna sesuai dengan ketentuan.
+
+Validasi dilakukan melalui class `ValidasiInput`.
+
+Beberapa validasi yang diterapkan antara lain:
 
 * Nama tidak boleh kosong.
-* Nama harus mengikuti format karakter yang ditentukan.
-* Umur harus berupa bilangan bulat dan berada pada rentang 1–80 tahun.
-* Jenis kelamin harus sesuai dengan pilihan yang tersedia.
-* Kategori pengunjung harus berupa Member atau Non-Member.
-* Data tiket harus sesuai dengan pilihan yang disediakan.
-* Tanggal kunjungan harus menggunakan format yang ditentukan.
-* Tanggal yang tidak valid harus ditolak.
-* ID yang dipilih untuk proses ubah, hapus, atau pencarian harus sesuai dengan data yang tersedia.
-* Pilihan menu harus sesuai dengan menu yang ditampilkan.
+* Nama hanya boleh mengandung huruf dan spasi.
+* Nama memiliki batas minimal dan maksimal karakter.
+* Umur harus berupa angka.
+* Umur harus berada antara 1 sampai 100 tahun.
+* Jenis kelamin hanya menerima pilihan L atau P.
+* Tipe pengunjung hanya menerima Member atau Non-Member.
+* Nomor Member tidak boleh kosong.
+* Jenis tiket hanya menerima Biasa atau VIP.
+* Tanggal kunjungan tidak boleh kosong.
+* Tanggal harus menggunakan format `DD-MM-YYYY`.
+* Tanggal yang tidak valid akan ditolak.
+* Pilihan menu harus berada pada pilihan yang tersedia.
 
-Validasi bertujuan mengurangi kesalahan input dan menjaga konsistensi data pengunjung.
+Contoh validasi nama:
 
-### Penerapan ID Otomatis
+<img width="583" height="232" alt="image" src="https://github.com/user-attachments/assets/61341bf2-c32d-4f74-8fb1-427398a32254" />
 
-Program menggunakan class `IdGenerator` untuk menghasilkan ID pengunjung secara otomatis.
+Validasi tanggal dilakukan agar input seperti:
 
-ID dibuat berdasarkan pola tahun dan nomor urut sesuai implementasi program. Pengguna tidak perlu memasukkan ID secara manual saat melakukan registrasi.
+```text
+1111
+99-99-2026
+31-02-2026
+```
 
-Contoh ilustrasi format ID:
+tidak diterima oleh program.
+
+Contoh tanggal yang benar:
+
+```text
+24-09-2026
+```
+
+Validasi tersebut digunakan untuk mengurangi kesalahan input dan menjaga data yang tersimpan agar sesuai dengan format yang telah ditentukan.
+
+---
+
+## Penerapan ID Otomatis
+
+Program tidak meminta pengguna memasukkan ID secara manual. ID dibuat secara otomatis menggunakan class `IdGenerator`.
+
+ID memiliki pola berdasarkan tahun dan nomor urut.
+
+Contohnya:
 
 ```text
 2026001
 2026002
 2026003
+2026004
 ```
 
-Nomor tersebut merupakan ilustrasi pola ID, bukan jaminan nilai yang muncul pada setiap eksekusi program.
+Bagian `2026` menunjukkan tahun, sedangkan tiga angka terakhir menunjukkan nomor urut pengunjung.
 
-Pembuatan ID otomatis membantu mengurangi kesalahan pengisian ID dan memudahkan identifikasi data pengunjung.
+---
 
-### Penerapan ArrayList dan Dummy Data
+## Penerapan ArrayList dan Dummy Data
 
-Program menggunakan `ArrayList` untuk menyimpan kumpulan objek pengunjung selama program berjalan.
+Program menggunakan `ArrayList` untuk menyimpan data pengunjung.
 
-Contoh deklarasi:
+Contohnya:
 
-```java
-ArrayList<Pengunjung> daftarPengunjung;
-```
+<img width="547" height="50" alt="image" src="https://github.com/user-attachments/assets/c38a19ca-4448-44b9-a646-dcebb71d76ee" />
 
-Penggunaan tipe `Pengunjung` memungkinkan daftar menyimpan objek dari subclass `Member` maupun `NonMember`.
+Program juga menyediakan **dummy data awal** agar ketika program pertama kali dijalankan, menu tampilkan data sudah memiliki data yang dapat ditampilkan.
 
-Program juga menyediakan dummy data sebagai data awal untuk pengujian. Dummy data memungkinkan pengguna mencoba fitur penampilan data, pencarian, statistik, dan analisis tanpa harus melakukan registrasi terlebih dahulu.
+Contoh dummy data terdiri dari:
 
-Data yang tersimpan pada `ArrayList` bersifat sementara selama program berjalan apabila belum ditambahkan mekanisme penyimpanan permanen ke file atau database.
+* 1 data Member.
+* 1 data Non-Member.
 
-### Penerapan CRUD
+Data tersebut dimasukkan ke dalam `ArrayList` melalui method:
 
-Program menerapkan operasi CRUD untuk mengelola data pengunjung.
+<img width="368" height="25" alt="image" src="https://github.com/user-attachments/assets/f960f7bd-0b45-46ff-9878-968f246ded81" />
 
-| Operasi | Fitur Program                       |
-| ------- | ----------------------------------- |
-| Create  | Registrasi pengunjung               |
-| Read    | Menampilkan seluruh data pengunjung |
-| Update  | Mengubah data pengunjung            |
-| Delete  | Menghapus data pengunjung           |
+Dengan adanya dummy data, pengguna dapat langsung mencoba fitur **Read/Tampilkan Data** tanpa harus melakukan input data terlebih dahulu.
 
-**Create**
+---
 
-Pengguna memasukkan informasi pengunjung baru melalui menu registrasi. Program memvalidasi input, menghasilkan ID otomatis, kemudian menyimpan objek ke dalam daftar pengunjung.
+## Penerapan CRUD
 
-**Read**
+Program menerapkan operasi CRUD dalam pengelolaan data pengunjung.
 
-Program menampilkan data pengunjung yang tersimpan menggunakan perulangan. Informasi yang ditampilkan mengikuti implementasi `tampilkanData()` pada objek masing-masing.
+| CRUD   | Penerapan                  |
+| ------ | -------------------------- |
+| Create | Registrasi Pengunjung      |
+| Read   | Tampilkan Semua Pengunjung |
+| Update | Ubah Data Pengunjung       |
+| Delete | Hapus Data Pengunjung      |
 
-**Update**
+### Create
 
-Pengguna memilih pengunjung berdasarkan ID dan memasukkan informasi pengganti. Program memvalidasi data sebelum memperbarui informasi pengunjung.
+Pengguna dapat menambahkan data pengunjung baru melalui menu **Registrasi Pengunjung**.
 
-**Delete**
+<img width="288" height="454" alt="image" src="https://github.com/user-attachments/assets/6d69e938-588b-4429-a9d5-3ef969f5582d" />
 
-Pengguna memilih ID pengunjung yang akan dihapus. Program memeriksa keberadaan data sebelum menjalankan proses penghapusan.
+### Read
 
-**Search**
+Program menampilkan seluruh data pengunjung yang tersimpan di dalam `ArrayList`.
 
-Pengguna memasukkan nama atau parameter pencarian yang tersedia. Program mencari data yang sesuai dan menampilkan hasilnya.
+<img width="908" height="479" alt="image" src="https://github.com/user-attachments/assets/3e9b1c9b-a47c-4b1e-b24e-c09261400f4c" />
 
-### Penerapan Statistik dan Analisis Data
+### Update
 
-Selain CRUD, program menyediakan fitur analisis untuk membantu pengelola memahami karakteristik pengunjung.
+Pengguna dapat mengubah informasi pengunjung yang sudah tersimpan.
 
-Analisis dilakukan berdasarkan data yang tersedia di dalam daftar pengunjung.
+<img width="916" height="435" alt="image" src="https://github.com/user-attachments/assets/15ccad92-c913-4711-8b77-b580038de0cb" />
 
-Aspek analisis meliputi:
+<img width="904" height="45" alt="image" src="https://github.com/user-attachments/assets/85277a90-866f-4692-a6ac-0a29fa3f29e7" />
 
-1. **Jumlah pengunjung:** mengetahui total data pengunjung yang tersimpan.
-2. **Kategori pengunjung:** mengetahui jumlah Member dan Non-Member.
-3. **Jenis kelamin:** mengetahui distribusi pengunjung berdasarkan jenis kelamin.
-4. **Kelompok umur:** mengetahui persebaran pengunjung berdasarkan rentang usia.
-5. **Rata-rata umur:** mengetahui gambaran umum usia pengunjung.
-6. **Pola kunjungan:** menganalisis jumlah kunjungan berdasarkan tanggal atau hari kunjungan sesuai kemampuan implementasi.
-7. **Informasi biaya:** menampilkan hasil perhitungan biaya kunjungan sesuai kategori dan aturan yang diterapkan.
+### Delete
 
-Hasil analisis dapat digunakan untuk memahami kebutuhan pengunjung dan mengevaluasi layanan kolam renang.
+Pengguna dapat menghapus data pengunjung berdasarkan ID setelah melakukan konfirmasi.
 
-### Penerapan Rekomendasi Pengelola
+<img width="898" height="323" alt="image" src="https://github.com/user-attachments/assets/4c31e091-ed19-4a66-9e55-e66ea07556a4" />
 
-Program menyediakan fitur rekomendasi berdasarkan hasil pengolahan data pengunjung.
+<img width="880" height="179" alt="image" src="https://github.com/user-attachments/assets/3af431be-8c14-41ad-86e2-b692a7fa8e62" />
 
-Rekomendasi digunakan sebagai bahan pertimbangan bagi pengelola dalam merencanakan layanan, promosi, dan operasional kolam renang.
 
-Contoh arah rekomendasi yang dapat dihasilkan berdasarkan hasil analisis adalah:
+---
 
-* Menyesuaikan promosi dengan kategori pengunjung yang paling banyak.
-* Mengevaluasi kebutuhan layanan berdasarkan distribusi kelompok umur.
-* Mempertimbangkan penambahan petugas atau fasilitas apabila data menunjukkan peningkatan kunjungan pada hari tertentu.
-* Mengevaluasi program keanggotaan berdasarkan jumlah Member dan Non-Member.
-* Meninjau kebijakan harga berdasarkan informasi biaya yang tersedia.
+## Penerapan Perulangan dan Percabangan
 
-Rekomendasi yang ditampilkan harus mengikuti aturan yang benar-benar diterapkan dalam kode program dan data hasil analisis, bukan dianggap sebagai prediksi otomatis apabila program belum menggunakan model prediksi.
+Program menggunakan perulangan agar menu utama tetap berjalan sampai pengguna memilih menu keluar.
 
-### Penerapan Perulangan dan Percabangan
 
-Program menggunakan perulangan untuk mempertahankan tampilan menu utama sampai pengguna memilih menu keluar.
+**Perulangan Menu Utama**
 
-Percabangan digunakan untuk menentukan proses yang dijalankan berdasarkan pilihan pengguna.
+<img width="458" height="117" alt="image" src="https://github.com/user-attachments/assets/08eba535-d2a6-48ba-a393-588819cb9af9" />
 
-Penggunaan `switch-case` memudahkan pemisahan proses setiap menu, sedangkan perulangan `for` atau bentuk perulangan lain digunakan untuk memproses daftar pengunjung.
 
-Kombinasi perulangan dan percabangan membuat program dapat menerima beberapa operasi secara berurutan dalam satu kali eksekusi.
+**Percabangan**
 
-### Nilai Tambah Program
+<img width="650" height="110" alt="image" src="https://github.com/user-attachments/assets/3d627bfe-310f-40a2-af23-5d430e823da0" />
 
-Nilai tambah yang diterapkan pada program meliputi:
+---
 
-1. **Arsitektur MVC:** memisahkan model, view, dan controller.
-2. **Abstract class dan abstract method:** menetapkan struktur dasar serta perilaku yang harus diterapkan oleh subclass.
-3. **Inheritance:** membedakan pengunjung Member dan Non-Member melalui pewarisan.
-4. **Polymorphism:** menerapkan method overriding dan method overloading.
-5. **Interface:** mendefinisikan kontrak perilaku layanan pengunjung.
-6. **Encapsulation:** membatasi akses langsung terhadap atribut.
-7. **ID otomatis:** menghasilkan identitas pengunjung tanpa input manual.
-8. **Validasi input:** menjaga konsistensi data.
-9. **Dummy data:** menyediakan data awal untuk pengujian.
-10. **Analisis data:** menghasilkan informasi statistik mengenai karakteristik pengunjung.
-11. **Rekomendasi pengelola:** membantu memberikan bahan pertimbangan berdasarkan data.
-12. **Pengelolaan CRUD:** menyediakan operasi dasar untuk mengelola data pengunjung.
+## Nilai Tambah yang Diterapkan
 
-### Kesimpulan
+1. **Struktur MVC**
 
-Sistem Analisis dan Manajemen Data Pengunjung Kolam Renang merupakan aplikasi berbasis Java yang dirancang untuk mengelola data pengunjung sekaligus menghasilkan informasi yang dapat membantu proses pengambilan keputusan oleh pengelola kolam renang.
+   * Model
+   * View
+   * Controller
 
-Program menyediakan fitur registrasi, penampilan data, perubahan, penghapusan, pencarian, statistik, analisis, dan rekomendasi. Penggunaan `ArrayList`, ID otomatis, dummy data, serta validasi input mendukung pengelolaan data yang lebih terstruktur.
+2. **Polymorphism**
 
-Penerapan konsep abstract class, abstract method, inheritance, encapsulation, polymorphism melalui overriding dan overloading, interface, serta arsitektur MVC menunjukkan penerapan prinsip Pemrograman Berorientasi Objek dalam pengembangan program.
+   * Method overriding pada `tampilkanData()`.
 
-Program ini diharapkan dapat menjadi dasar pengembangan sistem pengelolaan dan analisis pengunjung yang lebih lengkap pada masa mendatang.
+3. **ID Otomatis**
+
+   * ID dibuat secara otomatis menggunakan pola tahun dan nomor urut.
+
+4. **Validasi Input**
+
+   * Validasi nama, umur, jenis kelamin, tanggal, tipe pengunjung, tiket, dan menu.
+
+5. **Dummy Data**
+
+   * Data awal Member dan Non-Member dimasukkan ke dalam `ArrayList`.
+
+6. **Pencarian Berdasarkan Nama**
+
+   * Fitur pencarian menggunakan nama pengunjung, bukan ID.
+
+7. **Statistik Pengunjung**
+
+   * Menampilkan jumlah total pengunjung, Member, Non-Member, serta jumlah berdasarkan jenis kelamin.
+
+**Fitur Pencarian Berdasarkan Nama**
+
+<img width="857" height="291" alt="image" src="https://github.com/user-attachments/assets/29614f97-59c1-4131-a7f1-d5e437a052aa" />
+
+Gambar tersebut menampilkan antarmuka program Sistem Analisis Pengunjung Kolam Renang yang sedang menjalankan fungsi pencarian data pengunjung berdasarkan nama. Pada contoh tersebut, pengelola mencari pengunjung bernama "Dina" dan sistem berhasil menampilkan detail informasinya seperti ID, umur, jenis kelamin, tanggal kunjungan, serta biaya tiket.
+
+**Fitur Statistik Pengunjung**
+
+<img width="322" height="364" alt="image" src="https://github.com/user-attachments/assets/10cc519a-a7f9-4a40-9920-4dbb7a311dad" />
+
+Gambar tersebut menampilkan menu **Statistik Pengunjung** dari Sistem Analisis Pengunjung Kolam Renang yang menyajikan rangkuman data secara keseluruhan. Tampilan ini merangkum total 4 pengunjung beserta rincian demografi, kategori keanggotaan, jenis tiket, rata-rata umur, dan total pendapatan tiket.
+
+
+---
+
+## Kesimpulan
+
+Sistem Analisis dan Manajemen Data Pengunjung Kolam Renang merupakan program Java yang digunakan untuk mengelola data pengunjung secara terstruktur. Program telah menerapkan konsep dasar Pemrograman Berorientasi Objek seperti class, object, constructor, attribute, method, ArrayList, percabangan, dan perulangan.
+
+Program juga dikembangkan dengan menerapkan **encapsulation, inheritance, polymorphism, access modifier, validasi input, struktur MVC, ID otomatis, dan dummy data**. Pengembangan tersebut membuat program lebih terstruktur serta memberikan validasi dan pembagian tugas antar-class yang lebih jelas.
+
+
